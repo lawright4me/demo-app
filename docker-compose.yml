@@ -7,13 +7,16 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "8889:8080"
+      - "8889:8082"
     networks:
       - demo-app_default
     depends_on:
       - db
   db:
     image: postgres:16.10
+    build:
+      context: .
+      dockerfile: DockerfileDB
     environment:
       POSTGRES_DB: mydb
       POSTGRES_USER: myuser
