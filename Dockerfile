@@ -14,8 +14,5 @@ ARG JAR_FILE=target/*.jar
 # Копируем JAR файл приложения
 COPY ${JAR_FILE} app.jar
 
-# Открываем порт приложения
-EXPOSE 8080
-
 # Указываем команду для запуска приложения
 ENTRYPOINT ["java", "-jar", "/app.jar"]

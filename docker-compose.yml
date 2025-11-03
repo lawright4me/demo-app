@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   app:
+    container_name: spring_app_demo
     image: spring_app_demo
     build:
       context: .
@@ -13,6 +14,7 @@ services:
     depends_on:
       - db
   db:
+    container_name: postgres
     image: postgres:16.10
     build:
       context: .
@@ -22,7 +24,7 @@ services:
       POSTGRES_USER: myuser
       POSTGRES_PASSWORD: 123456
     ports:
-      - "5432:5432"
+      - "5433:5432"
     networks:
       - demo-app_default
     volumes:
